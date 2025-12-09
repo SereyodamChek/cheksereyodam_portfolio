@@ -3,7 +3,9 @@ import { config } from "@/data/config";
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Do NOT instantiate Resend at module load time. Next.js may import this file
+// during build, and the Resend constructor throws if the key is missing which
+// causes a build-time failure. Instantiate it inside the request handler.
 
 const Email = z.object({
   fullName: z.string().min(2, "Full name is invalid!"),
@@ -12,6 +14,15 @@ const Email = z.object({
 });
 export async function POST(req: Request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY ?? process.env.RE_SEND;
+    if (!apiKey) {
+      return Response.json(
+        { error: "Missing Resend API key. Set RESEND_API_KEY in environment." },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(apiKey);
     const body = await req.json();
     console.log(body);
     const {
