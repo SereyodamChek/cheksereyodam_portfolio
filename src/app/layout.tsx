@@ -82,7 +82,6 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png?v=2" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
         <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon" />
-        {/* <Analytics /> */}
       </head>
       <body>
         <ThemeProvider
@@ -108,6 +107,7 @@ export default function RootLayout({
             <ElasticCursor />
           </Preloader>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
