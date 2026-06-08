@@ -142,7 +142,7 @@ Inspired by modern 3D portfolio designs and creative developers pushing the boun
 
 ## 📫 Contact
 
-* GitHub: [https://github.com/YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+* GitHub: [https://github.com/SereyodamChek](https://github.com/SereyodamChek)
 * Email: [sereyodamc011@gmail.com](mailto:sereyodamc011@gmail.com)
 
 ---
